@@ -6,6 +6,16 @@
 #include <sys/cdefs.h>
 #include <sys/socket.h>
 
+#ifndef _IN_ADDR_T_DECLARED
+typedef	__uint32_t	in_addr_t;	/* base type for internet address */
+#define	_IN_ADDR_T_DECLARED
+#endif
+
+#ifndef _IN_PORT_T_DECLARED
+typedef	uint16_t	in_port_t;
+#define	_IN_PORT_T_DECLARED
+#endif
+
 __BEGIN_DECLS
 
 #define htonl __htonl

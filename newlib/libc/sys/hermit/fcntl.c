@@ -1,6 +1,7 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <stdarg.h>
+#include <stdlib.h>
 #include <sys/stat.h>
 
 int sys_fcntl(int fildes, int cmd, int arg);
@@ -48,6 +49,11 @@ int open(const char *path, int oflag, ...) {
     }
 
     return ret;
+}
+
+int fsync(int __fd) {
+    // STUB
+    return 0;
 }
 
 char* sys_getcwd(char *buf, size_t size);

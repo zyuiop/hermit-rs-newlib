@@ -605,10 +605,12 @@ check_PROGRAMS =
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/../../unix/dirname.c \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/alloc.c \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/context.S \
+@HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/dirname.c \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/environ.c \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/errno.c \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/fcntl.c \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/forward.c \
+@HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/grp.c \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/inet.c \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/inet_aton.c \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/inet_ntoa.c \
@@ -626,6 +628,7 @@ check_PROGRAMS =
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/signal.c \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/stdlib.c \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/stub.c \
+@HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/syslog.c \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/termios.c \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/time.c \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/unistd.c \
@@ -1773,10 +1776,12 @@ am__objects_55 = libc/ssp/libc_a-chk_fail.$(OBJEXT) \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/../../unix/libc_a-dirname.$(OBJEXT) \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-alloc.$(OBJEXT) \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-context.$(OBJEXT) \
+@HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-dirname.$(OBJEXT) \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-environ.$(OBJEXT) \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-errno.$(OBJEXT) \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-fcntl.$(OBJEXT) \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-forward.$(OBJEXT) \
+@HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-grp.$(OBJEXT) \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-inet.$(OBJEXT) \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-inet_aton.$(OBJEXT) \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-inet_ntoa.$(OBJEXT) \
@@ -1794,6 +1799,7 @@ am__objects_55 = libc/ssp/libc_a-chk_fail.$(OBJEXT) \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-signal.$(OBJEXT) \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-stdlib.$(OBJEXT) \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-stub.$(OBJEXT) \
+@HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-syslog.$(OBJEXT) \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-termios.$(OBJEXT) \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-time.$(OBJEXT) \
 @HAVE_LIBC_SYS_HERMIT_DIR_TRUE@	libc/sys/hermit/libc_a-unistd.$(OBJEXT) \
@@ -4092,6 +4098,7 @@ pdfdir = @pdfdir@
 prefix = @prefix@
 program_transform_name = @program_transform_name@
 psdir = @psdir@
+runstatedir = @runstatedir@
 sbindir = @sbindir@
 shared_machine_dir = @shared_machine_dir@
 sharedstatedir = @sharedstatedir@
@@ -7495,6 +7502,9 @@ libc/sys/hermit/libc_a-alloc.$(OBJEXT):  \
 libc/sys/hermit/libc_a-context.$(OBJEXT):  \
 	libc/sys/hermit/$(am__dirstamp) \
 	libc/sys/hermit/$(DEPDIR)/$(am__dirstamp)
+libc/sys/hermit/libc_a-dirname.$(OBJEXT):  \
+	libc/sys/hermit/$(am__dirstamp) \
+	libc/sys/hermit/$(DEPDIR)/$(am__dirstamp)
 libc/sys/hermit/libc_a-environ.$(OBJEXT):  \
 	libc/sys/hermit/$(am__dirstamp) \
 	libc/sys/hermit/$(DEPDIR)/$(am__dirstamp)
@@ -7506,6 +7516,8 @@ libc/sys/hermit/libc_a-fcntl.$(OBJEXT):  \
 	libc/sys/hermit/$(DEPDIR)/$(am__dirstamp)
 libc/sys/hermit/libc_a-forward.$(OBJEXT):  \
 	libc/sys/hermit/$(am__dirstamp) \
+	libc/sys/hermit/$(DEPDIR)/$(am__dirstamp)
+libc/sys/hermit/libc_a-grp.$(OBJEXT): libc/sys/hermit/$(am__dirstamp) \
 	libc/sys/hermit/$(DEPDIR)/$(am__dirstamp)
 libc/sys/hermit/libc_a-inet.$(OBJEXT):  \
 	libc/sys/hermit/$(am__dirstamp) \
@@ -7555,6 +7567,9 @@ libc/sys/hermit/libc_a-stdlib.$(OBJEXT):  \
 	libc/sys/hermit/$(am__dirstamp) \
 	libc/sys/hermit/$(DEPDIR)/$(am__dirstamp)
 libc/sys/hermit/libc_a-stub.$(OBJEXT):  \
+	libc/sys/hermit/$(am__dirstamp) \
+	libc/sys/hermit/$(DEPDIR)/$(am__dirstamp)
+libc/sys/hermit/libc_a-syslog.$(OBJEXT):  \
 	libc/sys/hermit/$(am__dirstamp) \
 	libc/sys/hermit/$(DEPDIR)/$(am__dirstamp)
 libc/sys/hermit/libc_a-termios.$(OBJEXT):  \
@@ -14120,10 +14135,12 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/h8500hms/$(DEPDIR)/libc_a-syscalls.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-alloc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-context.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-dirname.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-environ.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-errno.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-fcntl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-forward.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-grp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-inet.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-inet_aton.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-inet_ntoa.Po@am__quote@
@@ -14141,6 +14158,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-signal.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-stdlib.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-stub.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-syslog.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-termios.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-time.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/hermit/$(DEPDIR)/libc_a-unistd.Po@am__quote@
@@ -31638,6 +31656,20 @@ libc/sys/hermit/libc_a-alloc.obj: libc/sys/hermit/alloc.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/hermit/libc_a-alloc.obj `if test -f 'libc/sys/hermit/alloc.c'; then $(CYGPATH_W) 'libc/sys/hermit/alloc.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/hermit/alloc.c'; fi`
 
+libc/sys/hermit/libc_a-dirname.o: libc/sys/hermit/dirname.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/hermit/libc_a-dirname.o -MD -MP -MF libc/sys/hermit/$(DEPDIR)/libc_a-dirname.Tpo -c -o libc/sys/hermit/libc_a-dirname.o `test -f 'libc/sys/hermit/dirname.c' || echo '$(srcdir)/'`libc/sys/hermit/dirname.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/hermit/$(DEPDIR)/libc_a-dirname.Tpo libc/sys/hermit/$(DEPDIR)/libc_a-dirname.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/hermit/dirname.c' object='libc/sys/hermit/libc_a-dirname.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/hermit/libc_a-dirname.o `test -f 'libc/sys/hermit/dirname.c' || echo '$(srcdir)/'`libc/sys/hermit/dirname.c
+
+libc/sys/hermit/libc_a-dirname.obj: libc/sys/hermit/dirname.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/hermit/libc_a-dirname.obj -MD -MP -MF libc/sys/hermit/$(DEPDIR)/libc_a-dirname.Tpo -c -o libc/sys/hermit/libc_a-dirname.obj `if test -f 'libc/sys/hermit/dirname.c'; then $(CYGPATH_W) 'libc/sys/hermit/dirname.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/hermit/dirname.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/hermit/$(DEPDIR)/libc_a-dirname.Tpo libc/sys/hermit/$(DEPDIR)/libc_a-dirname.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/hermit/dirname.c' object='libc/sys/hermit/libc_a-dirname.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/hermit/libc_a-dirname.obj `if test -f 'libc/sys/hermit/dirname.c'; then $(CYGPATH_W) 'libc/sys/hermit/dirname.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/hermit/dirname.c'; fi`
+
 libc/sys/hermit/libc_a-environ.o: libc/sys/hermit/environ.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/hermit/libc_a-environ.o -MD -MP -MF libc/sys/hermit/$(DEPDIR)/libc_a-environ.Tpo -c -o libc/sys/hermit/libc_a-environ.o `test -f 'libc/sys/hermit/environ.c' || echo '$(srcdir)/'`libc/sys/hermit/environ.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/hermit/$(DEPDIR)/libc_a-environ.Tpo libc/sys/hermit/$(DEPDIR)/libc_a-environ.Po
@@ -31693,6 +31725,20 @@ libc/sys/hermit/libc_a-forward.obj: libc/sys/hermit/forward.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/hermit/forward.c' object='libc/sys/hermit/libc_a-forward.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/hermit/libc_a-forward.obj `if test -f 'libc/sys/hermit/forward.c'; then $(CYGPATH_W) 'libc/sys/hermit/forward.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/hermit/forward.c'; fi`
+
+libc/sys/hermit/libc_a-grp.o: libc/sys/hermit/grp.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/hermit/libc_a-grp.o -MD -MP -MF libc/sys/hermit/$(DEPDIR)/libc_a-grp.Tpo -c -o libc/sys/hermit/libc_a-grp.o `test -f 'libc/sys/hermit/grp.c' || echo '$(srcdir)/'`libc/sys/hermit/grp.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/hermit/$(DEPDIR)/libc_a-grp.Tpo libc/sys/hermit/$(DEPDIR)/libc_a-grp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/hermit/grp.c' object='libc/sys/hermit/libc_a-grp.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/hermit/libc_a-grp.o `test -f 'libc/sys/hermit/grp.c' || echo '$(srcdir)/'`libc/sys/hermit/grp.c
+
+libc/sys/hermit/libc_a-grp.obj: libc/sys/hermit/grp.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/hermit/libc_a-grp.obj -MD -MP -MF libc/sys/hermit/$(DEPDIR)/libc_a-grp.Tpo -c -o libc/sys/hermit/libc_a-grp.obj `if test -f 'libc/sys/hermit/grp.c'; then $(CYGPATH_W) 'libc/sys/hermit/grp.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/hermit/grp.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/hermit/$(DEPDIR)/libc_a-grp.Tpo libc/sys/hermit/$(DEPDIR)/libc_a-grp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/hermit/grp.c' object='libc/sys/hermit/libc_a-grp.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/hermit/libc_a-grp.obj `if test -f 'libc/sys/hermit/grp.c'; then $(CYGPATH_W) 'libc/sys/hermit/grp.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/hermit/grp.c'; fi`
 
 libc/sys/hermit/libc_a-inet.o: libc/sys/hermit/inet.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/hermit/libc_a-inet.o -MD -MP -MF libc/sys/hermit/$(DEPDIR)/libc_a-inet.Tpo -c -o libc/sys/hermit/libc_a-inet.o `test -f 'libc/sys/hermit/inet.c' || echo '$(srcdir)/'`libc/sys/hermit/inet.c
@@ -31931,6 +31977,20 @@ libc/sys/hermit/libc_a-stub.obj: libc/sys/hermit/stub.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/hermit/stub.c' object='libc/sys/hermit/libc_a-stub.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/hermit/libc_a-stub.obj `if test -f 'libc/sys/hermit/stub.c'; then $(CYGPATH_W) 'libc/sys/hermit/stub.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/hermit/stub.c'; fi`
+
+libc/sys/hermit/libc_a-syslog.o: libc/sys/hermit/syslog.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/hermit/libc_a-syslog.o -MD -MP -MF libc/sys/hermit/$(DEPDIR)/libc_a-syslog.Tpo -c -o libc/sys/hermit/libc_a-syslog.o `test -f 'libc/sys/hermit/syslog.c' || echo '$(srcdir)/'`libc/sys/hermit/syslog.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/hermit/$(DEPDIR)/libc_a-syslog.Tpo libc/sys/hermit/$(DEPDIR)/libc_a-syslog.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/hermit/syslog.c' object='libc/sys/hermit/libc_a-syslog.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/hermit/libc_a-syslog.o `test -f 'libc/sys/hermit/syslog.c' || echo '$(srcdir)/'`libc/sys/hermit/syslog.c
+
+libc/sys/hermit/libc_a-syslog.obj: libc/sys/hermit/syslog.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/hermit/libc_a-syslog.obj -MD -MP -MF libc/sys/hermit/$(DEPDIR)/libc_a-syslog.Tpo -c -o libc/sys/hermit/libc_a-syslog.obj `if test -f 'libc/sys/hermit/syslog.c'; then $(CYGPATH_W) 'libc/sys/hermit/syslog.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/hermit/syslog.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/hermit/$(DEPDIR)/libc_a-syslog.Tpo libc/sys/hermit/$(DEPDIR)/libc_a-syslog.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/hermit/syslog.c' object='libc/sys/hermit/libc_a-syslog.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/hermit/libc_a-syslog.obj `if test -f 'libc/sys/hermit/syslog.c'; then $(CYGPATH_W) 'libc/sys/hermit/syslog.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/hermit/syslog.c'; fi`
 
 libc/sys/hermit/libc_a-termios.o: libc/sys/hermit/termios.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/hermit/libc_a-termios.o -MD -MP -MF libc/sys/hermit/$(DEPDIR)/libc_a-termios.Tpo -c -o libc/sys/hermit/libc_a-termios.o `test -f 'libc/sys/hermit/termios.c' || echo '$(srcdir)/'`libc/sys/hermit/termios.c
