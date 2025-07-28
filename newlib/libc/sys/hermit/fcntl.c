@@ -49,3 +49,9 @@ int open(const char *path, int oflag, ...) {
 
     return ret;
 }
+
+char* sys_getcwd(char *buf, size_t size);
+
+char* getcwd(char *buf, size_t size) {
+    return sys_getcwd(buf, size);
+}

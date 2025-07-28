@@ -214,3 +214,16 @@ int getentropy(void *buffer, size_t length) {
 
 	return 0;
 }
+
+int sys_chdir(const char *path);
+
+int chdir(const char *path) {
+	int ret = sys_chdir(path);
+
+	if (ret < 0) {
+		errno = -ret;
+		return -1;
+	}
+
+	return 0;
+}

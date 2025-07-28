@@ -60,11 +60,9 @@ int tcsetwinsize(int fildes, const struct winsize *winsize_p);
 
 // unistd.h
 
-int chdir(const char *path);
 int _execve(const char *path, char *const argv[], char *const envp[]);
 int execvpe(const char *file, char *const argv[], char *const envp[]);
 pid_t fork(void);
-int ftruncate(int fildes, off_t length);
 int link(const char *path1, const char *path2);
 int pipe(int fildes[2]);
 int pipe2(int fildes[2], int flag);

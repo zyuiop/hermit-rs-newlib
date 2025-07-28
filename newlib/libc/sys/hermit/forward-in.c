@@ -42,10 +42,12 @@ ssize_t sendto(int socket, const void *message, size_t length, int flags, const 
 
 // sys/stat.h
 
+int fchmod(int fildes, mode_t mode);
 int fstat(int fildes, struct stat *buf);
 int lstat(const char *restrict path, struct stat *restrict buf);
 int mkdir(const char *path, mode_t mode);
 int stat(const char *restrict path, struct stat *restrict buf);
+mode_t umask(mode_t __mask);
 
 // sys/time.h
 
@@ -65,11 +67,14 @@ int nanosleep(const struct timespec *rqtp, struct timespec *rmtp);
 
 // unistd.h
 
+int access(const char *path, int mode);
 int close(int fildes);
 int dup(int fildes);
 int dup2(int fildes, int fildes2);
 off_t lseek(int fildes, off_t offset, int whence);
 ssize_t read(int fildes, void *buf, size_t nbyte);
 int rmdir(const char *path);
+int truncate(const char *path, off_t length);
+int ftruncate(int fd, off_t length);
 int unlink(const char *path);
 ssize_t write(int fildes, const void *buf, size_t nbyte);

@@ -142,11 +142,6 @@ int tcsetwinsize(int fildes, const struct winsize *winsize_p) {
 
 // unistd.h
 
-int chdir(const char *path) {
-    errno = ENOSYS;
-    return -1;
-}
-
 int _execve(const char *path, char *const argv[], char *const envp[]) {
     errno = ENOSYS;
     return -1;
@@ -158,11 +153,6 @@ int execvpe(const char *file, char *const argv[], char *const envp[]) {
 }
 
 pid_t fork(void) {
-    errno = ENOSYS;
-    return -1;
-}
-
-int ftruncate(int fildes, off_t length) {
     errno = ENOSYS;
     return -1;
 }

@@ -260,6 +260,18 @@ ssize_t sendto(int socket, const void *message, size_t length, int flags, const 
 
 // sys/stat.h
 
+int sys_fchmod(int fildes, mode_t mode);
+
+int fchmod(int fildes, mode_t mode) {
+    int ret = sys_fchmod(fildes, mode);
+
+    if (ret < 0) {
+        ret = -1;
+    }
+
+    return ret;
+}
+
 int sys_fstat(int fildes, struct stat *buf);
 
 int fstat(int fildes, struct stat *buf) {
@@ -300,6 +312,18 @@ int sys_stat(const char *restrict path, struct stat *restrict buf);
 
 int stat(const char *restrict path, struct stat *restrict buf) {
     int ret = sys_stat(path, buf);
+
+    if (ret < 0) {
+        ret = -1;
+    }
+
+    return ret;
+}
+
+mode_t sys_umask(mode_t __mask);
+
+mode_t umask(mode_t __mask) {
+    mode_t ret = sys_umask(__mask);
 
     if (ret < 0) {
         ret = -1;
@@ -400,6 +424,18 @@ int nanosleep(const struct timespec *rqtp, struct timespec *rmtp) {
 
 // unistd.h
 
+int sys_access(const char *path, int mode);
+
+int access(const char *path, int mode) {
+    int ret = sys_access(path, mode);
+
+    if (ret < 0) {
+        ret = -1;
+    }
+
+    return ret;
+}
+
 int sys_close(int fildes);
 
 int close(int fildes) {
@@ -464,6 +500,30 @@ int sys_rmdir(const char *path);
 
 int rmdir(const char *path) {
     int ret = sys_rmdir(path);
+
+    if (ret < 0) {
+        ret = -1;
+    }
+
+    return ret;
+}
+
+int sys_truncate(const char *path, off_t length);
+
+int truncate(const char *path, off_t length) {
+    int ret = sys_truncate(path, length);
+
+    if (ret < 0) {
+        ret = -1;
+    }
+
+    return ret;
+}
+
+int sys_ftruncate(int fd, off_t length);
+
+int ftruncate(int fd, off_t length) {
+    int ret = sys_ftruncate(fd, length);
 
     if (ret < 0) {
         ret = -1;

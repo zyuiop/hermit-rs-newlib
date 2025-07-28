@@ -35,6 +35,23 @@ int fcntl(int fildes, int cmd, ...);
 
 int open(const char *path, int oflag, ...);
 
+/* Operations for the `flock' call.  */
+#define LOCK_SH 1	/* Shared lock.  */
+#define LOCK_EX 2 	/* Exclusive lock.  */
+#define LOCK_UN 8	/* Unlock.  */
+
+/* Can be OR'd in to one of the above.  */
+#define LOCK_NB 4	/* Don't block when locking.  */
+
+
+/* Apply or remove an advisory lock, according to OPERATION,
+   on the file FD refers to.  */
+static inline int flock (int __fd, int __operation) {
+   return 0;
+}
+
+
+
 __END_DECLS
 
 #endif /* _SYS_FCNTL_H */
