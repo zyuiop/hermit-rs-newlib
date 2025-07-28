@@ -78,3 +78,4 @@ int truncate(const char *path, off_t length);
 int ftruncate(int fd, off_t length);
 int unlink(const char *path);
 ssize_t write(int fildes, const void *buf, size_t nbyte);
+char* getcwd(char *buf, size_t size);

@@ -555,3 +555,15 @@ ssize_t write(int fildes, const void *buf, size_t nbyte) {
 
     return ret;
 }
+
+char*sys_getcwd(char *buf, size_t size);
+
+char*getcwd(char *buf, size_t size) {
+    char* ret = sys_getcwd(buf, size);
+
+    if (ret < 0) {
+        ret = -1;
+    }
+
+    return ret;
+}
